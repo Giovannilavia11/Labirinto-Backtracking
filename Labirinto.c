@@ -1,7 +1,3 @@
-//NOMES----------------- RA -----
-//Giovanni Alves Lavia - 10409448
-//Samuel Lopes Pereira - 10403767
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
