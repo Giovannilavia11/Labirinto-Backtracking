@@ -28,26 +28,20 @@ void encontrarCaminho(int linha, int coluna) {
     labirinto[linha][coluna] = 'o';
 
     // Movendo para cima
-    if (!encontrado && posicaoValida(linha - 1, coluna)) {
-        encontrarCaminho(linha - 1, coluna);
-    }
+    if (!encontrado && posicaoValida(linha - 1, coluna)) encontrarCaminho(linha - 1, coluna);
+    
     // Movendo para baixo
-    if (!encontrado && posicaoValida(linha + 1, coluna)) {
-        encontrarCaminho(linha + 1, coluna);
-    }
+    if (!encontrado && posicaoValida(linha + 1, coluna)) encontrarCaminho(linha + 1, coluna);
+    
     // Movendo para a esquerda
-    if (!encontrado && posicaoValida(linha, coluna - 1)) {
-        encontrarCaminho(linha, coluna - 1);
-    }
-    // Movendo para a direita
-    if (!encontrado && posicaoValida(linha, coluna + 1)) {
-        encontrarCaminho(linha, coluna + 1);
-    }
+    if (!encontrado && posicaoValida(linha, coluna - 1)) encontrarCaminho(linha, coluna - 1);
 
+    // Movendo para a direita
+    if (!encontrado && posicaoValida(linha, coluna + 1)) encontrarCaminho(linha, coluna + 1);
+
+    
     // Se o caminho não foi encontrado a partir desta posição, volta para a posição anterior e marca como não visitado
-    if (!encontrado) {
-        labirinto[linha][coluna] = '.';
-    }
+    if (!encontrado) labirinto[linha][coluna] = '.';
 }
 
 // Função para a impressão do labirinto
@@ -76,9 +70,7 @@ int main() {
     fscanf(entrada, "%d %d", &linhas, &colunas);
 
     // Ler o labirinto
-    for (int i = 0; i < linhas; i++) {
-        fscanf(entrada, "%s", labirinto[i]);
-    }
+    for (int i = 0; i < linhas; i++) fscanf(entrada, "%s", labirinto[i]);
 
     fclose(entrada);
 
@@ -113,9 +105,7 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    for (int i = 0; i < linhas; i++) {
-        fprintf(saida, "%s\n", labirinto[i]);
-    }
+    for (int i = 0; i < linhas; i++) fprintf(saida, "%s\n", labirinto[i]);
 
     fclose(saida);
 
